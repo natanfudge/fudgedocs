@@ -21,37 +21,85 @@
 <body>
 
 
-<!-- Page Content -->
-<div class="container">
+    <!-- Page Content -->
+    <div class="container">
 
-    <div class="row">
+        <div class="row">
 
-        <!-- Post Content Column -->
-        <div class="col-lg-10 mx-auto">
+            <!-- Post Content Column -->
+            <div class="col-lg-10 mx-auto">
 
-            <!-- Title -->
-            <h1 class="mt-4">How to publish a Kotlin Multiplatform library to Bintray</h1>
-
-
-
-            <!-- Date/Time -->
-            <p>Posted on the 30th of June, 2019</p>
-            <hr>
+                <!-- Title -->
+                <h1 class="mt-4">How to publish a Kotlin Multiplatform library to Bintray</h1>
 
 
-            <h4>Step 1: set up your bintray account</h4>
 
+                <!-- Date/Time -->
+                <p>Posted on the 30th of June, 2019</p>
+                <hr>
+
+
+                <h3 id="prerequisites">Prerequisites:</h3>
+
+                <ul>
+                    <li>Have created a Kotlin Multiplatform library using
+                        <code>File-&gt; New -&gt; Project.. -&gt; Kotlin-&gt; Multiplatform Library</code> in IntellIJ
+                        (or a similiar IDE).</li>
+
+                    <li>Have hosted your project on a git or similiar repository. This guide will use github.com as an
+                        example. </li>
+                </ul>
+
+                <h2 id="step1setupyourbintrayaccountifyouhaventalready">Step 1: set up your bintray account (if you
+                    haven't already)</h2>
+
+                <ul>
+                    <li>Go to https://bintray.com/signup/oss and sign up.</li>
+
+                    <li><b>Add a new repository </b>:
+                        <img src="images/publish-kotlin-mpp-lib/add-new-repository.png" alt="add new repostiory" /></li>
+
+                    <li>Under <b> name</b> put in the name of the repository. For example, <code>myrepository</code>.
+                        Under <code>Type</code> put <code>Maven</code>, and fill in the rest as you wish.</li>
+                </ul>
+
+                <p>I will assume you have the 'new look', so press the <code>Go to New Look</code> button at the top of
+                    the screen if you have it.</p>
+
+                <ul>
+                    <li><b> Add a package: </b>
+                        <img src="images/publish-kotlin-mpp-lib/add-new-package.png" alt="add new package" /></li>
+
+                    <li>Under <b>Name </b> put in the name of the library. This should be a lower-case string. In this
+                        guide we will make publish a library that provides a function that prints "Kotlin is awesome!",
+                        so we will call it <code>kotlin-awesome-printer</code>. </li>
+
+                    <li>Put in your desired licenses in <b>Licenses</b>.</li>
+
+                    <li>In <b>Version control</b> put in where your code is stored. In our example, it will be
+                        https://github.com/natanfudge/KotlinAwesomePrinter.</li>
+                </ul>
+
+                <p>The other fields are not necessary right (MAKE SURE) now as we will insert them later on using a
+                    different method. </p>
+
+                <ul>
+                    <li>Click on <b>Save</b></li>
+                </ul>
+
+                <p>That is it for now on the Bintray side. </p>
+
+
+            </div>
 
         </div>
 
     </div>
 
-</div>
 
-
-<!-- Bootstrap core JavaScript -->
-<script src="vendor/jquery/jquery.min.js"></script>
-<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
