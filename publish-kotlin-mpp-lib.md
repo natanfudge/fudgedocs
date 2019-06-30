@@ -182,7 +182,7 @@ bintrayUpload.dependsOn publishToMavenLocal
 Finally, you will need to add some secret information to your gradle.properties. For this reason, <b>you MUST remove gradle.properties from source control.</b>
 To do this, create a .gitignore file at the root of your project if you don't have one already, and add `gradle.properties` to it. Then, remove `gradle.properties` from source control by executing `git rm --cached gradle.properties` in the root directory.
 Make sure you see `gradle.properties` is yellow in the IDE before committing your changes to source control (git).
-Now, add these constants to `gradle.properties`: `bintrayUser` - The username you signed up to bintray with. You can see this in your profile. `bintrayApiKey` - To get this, go to edit profile -> API Key and then copy to API Key.
+Now, add these constants to `gradle.properties`.    `bintrayUser` - The username you signed up to bintray with. You can see this in your profile. `bintrayApiKey` - To get this, go to edit profile -> API Key and then copy to API Key.
 ```
 bintrayUser=
 bintrayApiKey=
