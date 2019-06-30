@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Blog Post - Start Bootstrap Template</title>
+    <title>How to publish a Kotlin Multiplatform library to Bintray</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,85 +21,340 @@
 <body>
 
 
-    <!-- Page Content -->
-    <div class="container">
+<!-- Page Content -->
+<div class="container">
 
-        <div class="row">
+    <div class="row">
 
-            <!-- Post Content Column -->
-            <div class="col-lg-10 mx-auto">
+        <!-- Post Content Column -->
+        <div class="col-lg-10 mx-auto">
 
-                <!-- Title -->
-                <h1 class="mt-4">How to publish a Kotlin Multiplatform library to Bintray</h1>
-
-
-
-                <!-- Date/Time -->
-                <p>Posted on the 30th of June, 2019</p>
-                <hr>
+            <!-- Title -->
+            <h1 class="mt-4">How to publish a Kotlin Multiplatform library to Bintray</h1>
 
 
-                <h3 id="prerequisites">Prerequisites:</h3>
-
-                <ul>
-                    <li>Have created a Kotlin Multiplatform library using
-                        <code>File-&gt; New -&gt; Project.. -&gt; Kotlin-&gt; Multiplatform Library</code> in IntellIJ
-                        (or a similiar IDE).</li>
-
-                    <li>Have hosted your project on a git or similiar repository. This guide will use github.com as an
-                        example. </li>
-                </ul>
-
-                <h2 id="step1setupyourbintrayaccountifyouhaventalready">Step 1: set up your bintray account (if you
-                    haven't already)</h2>
-
-                <ul>
-                    <li>Go to https://bintray.com/signup/oss and sign up.</li>
-
-                    <li><b>Add a new repository </b>:
-                        <img src="images/publish-kotlin-mpp-lib/add-new-repository.png" alt="add new repostiory" /></li>
-
-                    <li>Under <b> name</b> put in the name of the repository. For example, <code>myrepository</code>.
-                        Under <code>Type</code> put <code>Maven</code>, and fill in the rest as you wish.</li>
-                </ul>
-
-                <p>I will assume you have the 'new look', so press the <code>Go to New Look</code> button at the top of
-                    the screen if you have it.</p>
-
-                <ul>
-                    <li><b> Add a package: </b>
-                        <img src="images/publish-kotlin-mpp-lib/add-new-package.png" alt="add new package" /></li>
-
-                    <li>Under <b>Name </b> put in the name of the library. This should be a lower-case string. In this
-                        guide we will make publish a library that provides a function that prints "Kotlin is awesome!",
-                        so we will call it <code>kotlin-awesome-printer</code>. </li>
-
-                    <li>Put in your desired licenses in <b>Licenses</b>.</li>
-
-                    <li>In <b>Version control</b> put in where your code is stored. In our example, it will be
-                        https://github.com/natanfudge/KotlinAwesomePrinter.</li>
-                </ul>
-
-                <p>The other fields are not necessary right (MAKE SURE) now as we will insert them later on using a
-                    different method. </p>
-
-                <ul>
-                    <li>Click on <b>Save</b></li>
-                </ul>
-
-                <p>That is it for now on the Bintray side. </p>
+            <!-- Date/Time -->
+            <p>Posted on the 30th of June, 2019</p>
+            <hr>
 
 
-            </div>
+            <h3 id="prerequisites">Prerequisites:</h3>
+
+            <ul>
+                <li>Have created a Kotlin Multiplatform library using <code>File-&gt; New -&gt;
+                    Project.. -&gt; Kotlin-&gt; Multiplatform Library</code> in IntellIJ (or a
+                    similiar IDE).
+                </li>
+
+                <li>Have hosted your project on git or similiar. This guide will use <a
+                        href="https://github.com/">Github</a> as an example.
+                </li>
+            </ul>
+
+            <h2 id="step1setupyourbintrayaccountifyouhaventalready">Step 1: set up your bintray
+                account (if you haven't already)</h2>
+
+            <ul>
+                <li><a href="https://bintray.com/signup/oss">Sign up to Bintray</a></li>
+
+                <li>Add a new repository:</li>
+            </ul>
+
+            <p><img src="images/publish-kotlin-mpp-lib/add-new-repository.png"
+                    alt="add new repostiory"/></p>
+
+            <ul>
+                <li>Under <b> name</b> put in the name of the repository. For example, <code>myrepository</code>.
+                    Under <code>Type</code> put <code>Maven</code>, and fill in the rest as you
+                    wish.
+                </li>
+            </ul>
+
+            <p>I will assume you have the 'new look', so press the <code>Go to New Look</code>
+                button at the top of the screen if you have it.</p>
+
+            <ul>
+                <li>Add a package:</li>
+            </ul>
+
+            <p><img src="images/publish-kotlin-mpp-lib/add-new-package.png" alt="add new package"/>
+            </p>
+
+            <ul>
+                <li><p>Under <b>Name </b> put in the name of the library. This should be a
+                    lower-case string. In this guide we will make publish a library that provides a
+                    function that prints "Kotlin is awesome!", so we will call it <code>kotlin-awesome-printer</code>.
+                </p></li>
+
+                <li><p>Put in your desired licenses in <b>Licenses</b>.</p></li>
+
+                <li><p>In <b>Version control</b> put in where your code is stored. In our example,
+                    it will be <a href="https://github.com/natanfudge/KotlinAwesomePrinter">https://github.com/natanfudge/KotlinAwesomePrinter</a>.
+                </p></li>
+
+                <li><p>Click on <b>Save</b></p></li>
+            </ul>
+
+            <p>That is it for now on the Bintray side. </p>
+
+            <h2 id="step2modifybuildgradle">Step 2: modify build.gradle</h2>
+
+            <p>Add this <code>buildscript</code> at the top of your build.gradle:</p>
+
+            <pre><code>buildscript {
+    dependencies {
+        classpath "com.jfrog.bintray.gradle:gradle-bintray-plugin:1.8.4"
+    }
+}
+</code></pre>
+
+            <p>Then add the <code>base</code> and <code>maven-publish</code> plugins to your <code>plugins</code>
+                block if you haven't already (if you have <code>apply plugin: 'maven-publish'</code>
+                you can remove that now):</p>
+
+            <pre><code>plugins {
+    id 'org.jetbrains.kotlin.multiplatform' version '1.3.40'
+    id "base"
+    id "maven-publish"
+}
+</code></pre>
+
+            <p>Add the <code>com.jfrog.bintray</code> plugin, but make you sure use the <code>apply
+                plugin</code> syntax in this case:</p>
+
+            <pre><code>apply plugin: 'com.jfrog.bintray'
+</code></pre>
+
+            <p>Now we're going to define a whole bunch of constants that we are going to use. In
+                each line I put an explanation of what you are supposed to put there:</p>
+
+            <pre><code>def GROUP_ID= // Your orginization in reverse domain notation. For example:  def GROUP_ID="com.fudge"
+def ARTIFACT_ID= // The name you gave your package in bintray. In our example it would be:  def ARTIFACT_ID="kotlin-awesome-printer"
+
+def BINTRAY_REPOSITORY= // What you named your repository in bintray. In our example it would be "myrepository"
+def BINTRAY_ORGINIZATION= //  Your public facing Bintray name. You can see your Bintray name on the top right corner in Bintray. I named it "guide" for our example.
+
+def ISSUE_URL= // A link to an issue tracker for the library, in our example: "https://github.com/natanfudge/KotlinAwesomePrinter/issues"
+def SITE_URL= // A link to the library's site. In our example: "https://github.com/natanfudge/KotlinAwesomePrinter"
+def VCS_URL= // A link to the version control system (where the code is stored). In our example: "https://github.com/natanfudge/KotlinAwesomePrinter.git"
+
+def POM_LICENSE_NAME= // The name of the license of the library. For example: "The MIT License"
+def POM_LICENSE_URL= // A link to the license, For example: "https://opensource.org/licenses/MIT"
+def POM_LICENSE_DIST="repo" // Leave as is
+def POM_DEVELOPER_ID= // your name, for example "natanfudge"
+def POM_DEVELOPER_NAME=// your name, for example "natanfudge"
+def POM_ORGANIZATION_NAME=// The name of your orginization, for example "fudge"
+def POM_ORGANIZATION_URL= // Your orginization's site, for example "https://github.com/natanfudge"
+def POM_DESCRIPTION= // A description of your library, for example "Prints 'Kotlin Is Awesome!' "
+def LIBRARY_VERSION_NAME= // The current version of your library. You will need to update this value whenever you upload a new release. For example: 1.0
+</code></pre>
+
+            <p>Add <code>jcenter</code> to your repositories if you don't have it yet:</p>
+
+            <pre><code>repositories {
+    jcenter()
+    mavenCentral()
+}
+</code></pre>
+
+            <p>Delete <code>group 'com.example' version '0.0.1'</code> and put after the constants:
+            </p>
+
+            <pre><code>group GROUP_ID
+version LIBRARY_VERSION_NAME
+</code></pre>
+
+            <p>After your <code>kotlin{}</code> block, paste this:</p>
+
+            <pre><code>def pomConfig = {
+    licenses {
+        license {
+            name POM_LICENSE_NAME
+            url POM_LICENSE_URL
+            distribution POM_LICENSE_DIST
+        }
+    }
+    developers {
+        developer {
+            id POM_DEVELOPER_ID
+            name POM_DEVELOPER_NAME
+            organization POM_ORGANIZATION_NAME
+            organizationUrl POM_ORGANIZATION_URL
+        }
+    }
+    scm {
+        url SITE_URL
+    }
+}
+
+afterEvaluate {
+    project.publishing.publications.all {
+        pom.withXml {
+            def root = asNode()
+            root.appendNode('name', project.name)
+            root.appendNode('description', POM_DESCRIPTION)
+            root.appendNode('url', SITE_URL)
+            root.children().last() + pomConfig
+        }
+
+        // rename artifacts
+        groupId = GROUP_ID
+        if (it.name.contains('metadata')) {
+            artifactId = "${project.name}"
+        } else {
+            artifactId = "${project.name}-$name"
+        }
+    }
+}
+
+def getBintrayUserProperty() {
+    return hasProperty('bintrayUser') ? project.property('bintrayUser') : System.getenv('BINTRAY_USER')
+}
+
+def getBintrayApiKeyProperty() {
+    return hasProperty('bintrayApiKey') ? project.property('bintrayApiKey') : System.getenv('BINTRAY_API_KEY')
+}
+
+bintray {
+    //A user name of bintray to A, and API key of Bintray to B.I do not want to include API Key in git,
+    // so I am gradle.properties writing locally.
+    // Gradle's property file is read in the order of gradle in the home directory&gt; gradle in the project directory,
+    // so if it is written in property in the home directory, it will be useful for other projects as well.
+    user = getBintrayUserProperty()
+    key = getBintrayApiKeyProperty()
+    //f you set publish to true, the new version will be published the moment you upload to bintray. If false, it will not be published unless you press the publish button on the bintray web.
+    // It is recommended that you make it false because it can prevent an accident that you accidentally release the latest version.
+    publish = false
+
+    pkg {
+        repo = BINTRAY_REPOSITORY
+        name = ARTIFACT_ID
+        userOrg = BINTRAY_ORGINIZATION
+        licenses = ['Apache-2.0']
+        vcsUrl = VCS_URL
+        websiteUrl = SITE_URL
+        issueTrackerUrl = ISSUE_URL
+
+        version {
+            name = LIBRARY_VERSION_NAME
+            vcsTag = LIBRARY_VERSION_NAME
+            released = new Date()
+        }
+    }
+}
+
+// This specifies the publications to upload to bintray before doing the bintrayUpload gradle task.
+//In the mpp configuration of one module after 1.3,
+// it is not uploaded unless you explicitly specify artifacts in publications like this.
+// It is not necessary to have the findAll part,
+// [project name]-kotlinMultiplatformbut a directory containing only pom files will be uploaded, so it is better to exclude it.
+bintrayUpload.doFirst {
+    publications = publishing.publications.collect {
+        it.name
+    }.findAll {
+        it != "kotlinMultiplatform"
+    }
+}
+
+//The task of bintrayUpload depends on publishToMavenLocal set in the previous section.
+// This will create maven artifacts when running bintrayUplaod's task.
+bintrayUpload.dependsOn publishToMavenLocal
+</code></pre>
+
+            <p>Finally, you will need to add some secret information to your gradle.properties. For
+                this reason, <b>you MUST remove gradle.properties from source control.</b>
+                To do this, create a .gitignore file at the root of your project if you don't have
+                one already, and add <code>gradle.properties</code> to it. Then, remove <code>gradle.properties</code>
+                from source control by executing <code>git rm --cached gradle.properties</code> in
+                the root directory.
+                Make sure you see <code>gradle.properties</code> is yellow in the IDE before
+                committing your changes to source control (git).
+                Now, add these constants to <code>gradle.properties</code>: <code>bintrayUser</code>
+                - The username you signed up to bintray with. You can see this in your profile.
+                <code>bintrayApiKey</code> - To get this, go to edit profile -> API Key and then
+                copy to API Key.</p>
+
+            <pre><code>bintrayUser=
+bintrayApiKey=
+</code></pre>
+
+            <p>Your build script is now ready! Make sure to import changes.</p>
+
+            <h3 id="step3uploadtobintray">Step 3: Upload to Bintray</h3>
+
+            <p>Run <code>gradle wrapper</code> if you haven't already, then run <code>gradlew
+                clean</code> and then <code>gradlew bintrayUpload</code>.</p>
+
+            <p>Then go to your package in Bintray and click 'publish all' on the notification you
+                will get.</p>
+
+            <h3 id="step4tellyourusershowtouseyourlibrary">Step 4: Tell your users how to use your
+                library</h3>
+
+            <p>Go to your package in Bintray and press <code>Set me up</code>:</p>
+
+            <p><img src="images/publish-kotlin-mpp-lib/set-me-up.png" alt="set me up"/></p>
+
+            <p>Open up <code>Resolving artifacts using Gradle</code>. Copy the url that is presented
+                there (in our example it's "https://dl.bintray.com/guide/myrepository")</p>
+
+            <p>Showing your users something like this will suffice:</p>
+
+            <pre><code>Add this to your `repositories` block in build.gradle:
+
+repositories {
+    maven {
+        url  //PUT HERE THE URL YOU COPIED FROM "SET ME UP", in our example it would be 'url ""https://dl.bintray.com/guide/myrepository" ""'
+    }
+}
+</code></pre>
+
+            <p>Kotlin Multiplatform produces different binaries for every different target. So for
+                every platform they will need to put a different package in their
+                <code>dependency</code> block.</p>
+
+            <p>For example if you target JVM, Javascript and windows binary (mingw) tell your users
+                something like this: (assuming you didn't change the names of the binaries):</p>
+
+            <pre><code>For JVM, add implementation '&lt;THE 'GROUP_ID' CONSTANT IN BUILD.GRADLE&gt;:&lt;THE PROJECT'S NAME IN THE VCS SYSTEM (GITHUB)&gt;-jvm:&lt;THE 'LIBRARY_VERSION_NAME' CONSTANT&gt;':
+dependencies {
+    implementation 'GROUP_ID:PROJECT_NAME-jvm:LIBRARY_VERSION_NAME'
+}
+For JS: implementation 'GROUP_ID:PROJECT_NAME-js:LIBRARY_VERSION_NAME'
+For Windows Native: implementation 'GROUP_ID:PROJECT_NAME-mingw:LIBRARY_VERSION_NAME'
+</code></pre>
+
+            <p>If we use our package as an example:</p>
+
+            <pre><code>For JVM, add implementation 'com.fudge:KotlinAwesomePrinter-jvm:1.0`:
+dependencies {
+    implementation 'com.fudge:KotlinAwesomePrinter-jvm:1.0'
+}
+For JS: implementation 'com.fudge:KotlinAwesomePrinter-js:1.0'
+For Windows Native: implementation 'com.fudge:KotlinAwesomePrinter-mingw:1.0'
+</code></pre>
+
+            <p>If you don't know what to append in a certain platform, go to the link from "set me
+                up" ("https://dl.bintray.com/guide/myrepository" in the example) and go through the
+                directories until you see
+                a couple directories with the name of your project with a different '-' postfixes
+                for each one. Those are the postfixes your users will need to use.</p>
+
+            <p>This example is available on <a
+                    href="https://github.com/natanfudge/KotlinAwesomePrinter">https://github.com/natanfudge/KotlinAwesomePrinter</a>.
+            </p>
+
 
         </div>
 
     </div>
 
+</div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
