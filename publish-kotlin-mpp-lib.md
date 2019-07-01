@@ -109,7 +109,7 @@ afterEvaluate {
     project.publishing.publications.all { 
         pom.withXml {                     
             def root = asNode()
-            root.appendNode('name', project.name)
+            root.appendNode('name', ARTIFACT_ID)
             root.appendNode('description', POM_DESCRIPTION)
             root.appendNode('url', SITE_URL)
             root.children().last() + pomConfig
@@ -118,9 +118,9 @@ afterEvaluate {
         // rename artifacts
         groupId = GROUP_ID
         if (it.name.contains('metadata')) { 
-            artifactId = "${project.name}"
+            artifactId = "$ARTIFACT_ID"
         } else {
-            artifactId = "${project.name}-$name"
+            artifactId = "$ARTIFACT_ID-$name"
         }
     }
 }
@@ -217,21 +217,21 @@ Kotlin Multiplatform produces different binaries for every different target. So 
 
 For example if you target JVM, Javascript and windows binary (mingw) tell your users something like this: (assuming you didn't change the names of the binaries):
 ```
-For JVM, add implementation '<THE 'GROUP_ID' CONSTANT IN BUILD.GRADLE>:<THE PROJECT'S NAME IN THE VCS SYSTEM (GITHUB)>-jvm:<THE 'LIBRARY_VERSION_NAME' CONSTANT>':
+For JVM, add implementation '<THE 'GROUP_ID' CONSTANT IN BUILD.GRADLE>:<THE ARTIFACT_ID CONSTANT>-jvm:<THE 'LIBRARY_VERSION_NAME' CONSTANT>':
 dependencies {
-    implementation 'GROUP_ID:PROJECT_NAME-jvm:LIBRARY_VERSION_NAME'
+    implementation 'GROUP_ID:ARTIFACT_ID-jvm:LIBRARY_VERSION_NAME'
 }
-For JS: implementation 'GROUP_ID:PROJECT_NAME-js:LIBRARY_VERSION_NAME'
-For Windows Native: implementation 'GROUP_ID:PROJECT_NAME-mingw:LIBRARY_VERSION_NAME'
+For JS: implementation 'GROUP_ID:ARTIFACT_ID-js:LIBRARY_VERSION_NAME'
+For Windows Native: implementation 'ARTIFACT_ID:PROJECT_NAME-mingw:LIBRARY_VERSION_NAME'
 ```
 If we use our package as an example:
 ```
-For JVM, add implementation 'com.fudge:KotlinAwesomePrinter-jvm:1.0`:
+For JVM, add implementation 'com.fudge:kotlin-awesome-printer-jvm:1.0`:
 dependencies {
-    implementation 'com.fudge:KotlinAwesomePrinter-jvm:1.0'
+    implementation 'com.fudge:kotlin-awesome-printer-jvm:1.0'
 }
-For JS: implementation 'com.fudge:KotlinAwesomePrinter-js:1.0'
-For Windows Native: implementation 'com.fudge:KotlinAwesomePrinter-mingw:1.0'
+For JS: implementation 'com.fudge:kotlin-awesome-printer-js:1.0'
+For Windows Native: implementation 'com.fudge:kotlin-awesome-printer-mingw:1.0'
 ```
 
 If you don't know what to append in a certain platform, go to the link from below "set me up" ("https://dl.bintray.com/guide/myrepository" in the example) and go through the directories until you see

@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d49c295a-a267-475a-a31b-72a974d2e1ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/blog-post.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/blog-post.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/publish-kotlin-mpp-lib/set-me-up.png" beforeDir="false" afterPath="$PROJECT_DIR$/images/publish-kotlin-mpp-lib/set-me-up.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/publish-kotlin-mpp-lib.html" beforeDir="false" afterPath="$PROJECT_DIR$/publish-kotlin-mpp-lib.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publish-kotlin-mpp-lib.md" beforeDir="false" afterPath="$PROJECT_DIR$/publish-kotlin-mpp-lib.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -20,36 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5401">
-              <caret line="288" column="29" lean-forward="true" selection-start-line="288" selection-start-column="29" selection-end-line="288" selection-end-column="29" />
-              <folding>
-                <element signature="e#1023#1027#0" expanded="true" />
-                <element signature="e#1033#1037#0" expanded="true" />
-                <element signature="e#1049#1053#0" expanded="true" />
-                <element signature="e#1061#1065#0" expanded="true" />
-                <element signature="e#7373#7377#0" expanded="true" />
-                <element signature="e#11413#11417#0" expanded="true" />
-                <element signature="e#11456#11460#0" expanded="true" />
-                <element signature="e#11461#11465#0" expanded="true" />
-                <element signature="e#11510#11514#0" expanded="true" />
-                <element signature="e#11519#11523#0" expanded="true" />
-                <element signature="e#11558#11562#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="FIRST">
-              <first_editor relative-caret-position="300">
-                <caret line="206" selection-start-line="206" selection-end-line="206" />
-              </first_editor>
-              <second_editor />
+            <state relative-caret-position="1820">
+              <caret line="127" column="65" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
             </state>
           </provider>
         </entry>
@@ -59,6 +31,18 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="240">
               <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="306">
+                <caret line="107" selection-start-line="107" selection-end-line="125" selection-end-column="1" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -108,6 +92,11 @@
       <find>img s</find>
       <find>make pu</find>
       <find>copy to</find>
+      <find>set me u</find>
+      <find>go to your pa</find>
+      <find>add this</find>
+      <find>add this to</find>
+      <find>the name of</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -119,8 +108,8 @@
         <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/blog-post.css" />
-        <option value="$PROJECT_DIR$/publish-kotlin-mpp-lib.md" />
         <option value="$PROJECT_DIR$/publish-kotlin-mpp-lib.html" />
+        <option value="$PROJECT_DIR$/publish-kotlin-mpp-lib.md" />
       </list>
     </option>
   </component>
@@ -147,8 +136,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -202,6 +189,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -262,7 +251,8 @@
       <workItem from="1561904873174" duration="6043000" />
       <workItem from="1561911971222" duration="1544000" />
       <workItem from="1561918001193" duration="350000" />
-      <workItem from="1561968938373" duration="514000" />
+      <workItem from="1561968938373" duration="783000" />
+      <workItem from="1561971709009" duration="258000" />
     </task>
     <task id="LOCAL-00001" summary="fix name">
       <created>1561838134799</created>
@@ -313,17 +303,23 @@
       <option name="project" value="LOCAL" />
       <updated>1561913412931</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Fixed typos and image sizes">
+      <created>1561969479655</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1561969479655</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14324000" />
+    <option name="totallyTimeSpent" value="14851000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17110874" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -357,7 +353,8 @@
     <MESSAGE value="Kotlin Multiplatform Bintray guide Version 1" />
     <MESSAGE value="update spacing" />
     <MESSAGE value="Make more responsive" />
-    <option name="LAST_COMMIT_MESSAGE" value="Make more responsive" />
+    <MESSAGE value="Fixed typos and image sizes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed typos and image sizes" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -400,6 +397,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1820">
+          <caret line="127" column="65" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/blog-post.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/images/publish-kotlin-mpp-lib/set-me-up.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -414,43 +428,13 @@
     <entry file="file://$PROJECT_DIR$/images/publish-kotlin-mpp-lib/add-new-package.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/images/publish-kotlin-mpp-lib/set-me-up.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/css/blog-post.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="300">
-            <caret line="206" selection-start-line="206" selection-end-line="206" />
+          <first_editor relative-caret-position="306">
+            <caret line="107" selection-start-line="107" selection-end-line="125" selection-end-column="1" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5401">
-          <caret line="288" column="29" lean-forward="true" selection-start-line="288" selection-start-column="29" selection-end-line="288" selection-end-column="29" />
-          <folding>
-            <element signature="e#1023#1027#0" expanded="true" />
-            <element signature="e#1033#1037#0" expanded="true" />
-            <element signature="e#1049#1053#0" expanded="true" />
-            <element signature="e#1061#1065#0" expanded="true" />
-            <element signature="e#7373#7377#0" expanded="true" />
-            <element signature="e#11413#11417#0" expanded="true" />
-            <element signature="e#11456#11460#0" expanded="true" />
-            <element signature="e#11461#11465#0" expanded="true" />
-            <element signature="e#11510#11514#0" expanded="true" />
-            <element signature="e#11519#11523#0" expanded="true" />
-            <element signature="e#11558#11562#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

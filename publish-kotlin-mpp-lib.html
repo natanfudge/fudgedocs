@@ -191,7 +191,7 @@ afterEvaluate {
     project.publishing.publications.all {
         pom.withXml {
             def root = asNode()
-            root.appendNode('name', project.name)
+            root.appendNode('name', ARTIFACT_ID)
             root.appendNode('description', POM_DESCRIPTION)
             root.appendNode('url', SITE_URL)
             root.children().last() + pomConfig
@@ -200,9 +200,9 @@ afterEvaluate {
         // rename artifacts
         groupId = GROUP_ID
         if (it.name.contains('metadata')) {
-            artifactId = "${project.name}"
+            artifactId = "$ARTIFACT_ID"
         } else {
-            artifactId = "${project.name}-$name"
+            artifactId = "$ARTIFACT_ID-$name"
         }
     }
 }
@@ -313,22 +313,22 @@ repositories {
             <p>For example if you target JVM, Javascript and windows binary (mingw) tell your users
                 something like this: (assuming you didn't change the names of the binaries):</p>
 
-            <pre><code>For JVM, add implementation '&lt;THE 'GROUP_ID' CONSTANT IN BUILD.GRADLE&gt;:&lt;THE PROJECT'S NAME IN THE VCS SYSTEM (GITHUB)&gt;-jvm:&lt;THE 'LIBRARY_VERSION_NAME' CONSTANT&gt;':
+            <pre><code>For JVM, add implementation '&lt;THE 'GROUP_ID' CONSTANT IN BUILD.GRADLE&gt;:&lt;THE ARTIFACT_ID CONSTANT&gt;-jvm:&lt;THE 'LIBRARY_VERSION_NAME' CONSTANT&gt;':
 dependencies {
-    implementation 'GROUP_ID:PROJECT_NAME-jvm:LIBRARY_VERSION_NAME'
+    implementation 'GROUP_ID:ARTIFACT_ID-jvm:LIBRARY_VERSION_NAME'
 }
-For JS: implementation 'GROUP_ID:PROJECT_NAME-js:LIBRARY_VERSION_NAME'
-For Windows Native: implementation 'GROUP_ID:PROJECT_NAME-mingw:LIBRARY_VERSION_NAME'
+For JS: implementation 'GROUP_ID:ARTIFACT_ID-js:LIBRARY_VERSION_NAME'
+For Windows Native: implementation 'ARTIFACT_ID:PROJECT_NAME-mingw:LIBRARY_VERSION_NAME'
 </code></pre>
 
             <p>If we use our package as an example:</p>
 
-            <pre><code>For JVM, add implementation 'com.fudge:KotlinAwesomePrinter-jvm:1.0`:
+            <pre><code>For JVM, add implementation 'com.fudge:kotlin-awesome-printer-jvm:1.0`:
 dependencies {
-    implementation 'com.fudge:KotlinAwesomePrinter-jvm:1.0'
+    implementation 'com.fudge:kotlin-awesome-printer-jvm:1.0'
 }
-For JS: implementation 'com.fudge:KotlinAwesomePrinter-js:1.0'
-For Windows Native: implementation 'com.fudge:KotlinAwesomePrinter-mingw:1.0'
+For JS: implementation 'com.fudge:kotlin-awesome-printer-js:1.0'
+For Windows Native: implementation 'com.fudge:kotlin-awesome-printer-mingw:1.0'
 </code></pre>
 
             <p>If you don't know what to append in a certain platform, go to the link from below
