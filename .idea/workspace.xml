@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d49c295a-a267-475a-a31b-72a974d2e1ab" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/publish-kotlin-mpp-lib.html" beforeDir="false" afterPath="$PROJECT_DIR$/publish-kotlin-mpp-lib.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/publish-kotlin-mpp-lib.md" beforeDir="false" afterPath="$PROJECT_DIR$/publish-kotlin-mpp-lib.md" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -17,11 +18,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1820">
-              <caret line="127" column="65" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
+            <state relative-caret-position="41">
+              <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+              <folding>
+                <element signature="e#1023#1027#0" expanded="true" />
+                <element signature="e#1033#1037#0" expanded="true" />
+                <element signature="e#1049#1053#0" expanded="true" />
+                <element signature="e#1061#1065#0" expanded="true" />
+                <element signature="e#4994#4998#0" expanded="true" />
+                <element signature="e#8979#8983#0" expanded="true" />
+                <element signature="e#9022#9026#0" expanded="true" />
+                <element signature="e#9027#9031#0" expanded="true" />
+                <element signature="e#9055#9059#0" expanded="true" />
+                <element signature="e#9064#9068#0" expanded="true" />
+                <element signature="e#9103#9107#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -35,12 +49,12 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="FIRST">
-              <first_editor relative-caret-position="306">
-                <caret line="107" selection-start-line="107" selection-end-line="125" selection-end-column="1" />
+              <first_editor relative-caret-position="540">
+                <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
               </first_editor>
               <second_editor />
             </state>
@@ -97,6 +111,8 @@
       <find>add this</find>
       <find>add this to</find>
       <find>the name of</find>
+      <find>def v</find>
+      <find>pomconfig</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -136,6 +152,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -185,12 +203,16 @@
               <item name="css" type="462c0819:PsiDirectoryNode" />
               <item name="bootstrap.css" type="620a8d5e:NestingTreeNode" />
             </path>
+            <path>
+              <item name="fudgedocs" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fudgedocs" type="462c0819:PsiDirectoryNode" />
+              <item name="vendor" type="462c0819:PsiDirectoryNode" />
+              <item name="jquery" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -252,7 +274,8 @@
       <workItem from="1561911971222" duration="1544000" />
       <workItem from="1561918001193" duration="350000" />
       <workItem from="1561968938373" duration="783000" />
-      <workItem from="1561971709009" duration="258000" />
+      <workItem from="1561971709009" duration="493000" />
+      <workItem from="1562008012027" duration="578000" />
     </task>
     <task id="LOCAL-00001" summary="fix name">
       <created>1561838134799</created>
@@ -310,16 +333,23 @@
       <option name="project" value="LOCAL" />
       <updated>1561969479655</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="update to use ARTIFACT_ID">
+      <created>1561972179922</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1561972179922</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14851000" />
+    <option name="totallyTimeSpent" value="15664000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17110874" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17270789" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -354,7 +384,8 @@
     <MESSAGE value="update spacing" />
     <MESSAGE value="Make more responsive" />
     <MESSAGE value="Fixed typos and image sizes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed typos and image sizes" />
+    <MESSAGE value="update to use ARTIFACT_ID" />
+    <option name="LAST_COMMIT_MESSAGE" value="update to use ARTIFACT_ID" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/package.json">
@@ -397,13 +428,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1820">
-          <caret line="127" column="65" selection-start-line="127" selection-start-column="65" selection-end-line="127" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/blog-post.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -431,10 +455,30 @@
     <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="FIRST">
-          <first_editor relative-caret-position="306">
-            <caret line="107" selection-start-line="107" selection-end-line="125" selection-end-column="1" />
+          <first_editor relative-caret-position="540">
+            <caret line="48" column="28" selection-start-line="48" selection-start-column="28" selection-end-line="48" selection-end-column="28" />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/publish-kotlin-mpp-lib.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="41">
+          <caret line="101" lean-forward="true" selection-start-line="101" selection-end-line="101" />
+          <folding>
+            <element signature="e#1023#1027#0" expanded="true" />
+            <element signature="e#1033#1037#0" expanded="true" />
+            <element signature="e#1049#1053#0" expanded="true" />
+            <element signature="e#1061#1065#0" expanded="true" />
+            <element signature="e#4994#4998#0" expanded="true" />
+            <element signature="e#8979#8983#0" expanded="true" />
+            <element signature="e#9022#9026#0" expanded="true" />
+            <element signature="e#9027#9031#0" expanded="true" />
+            <element signature="e#9055#9059#0" expanded="true" />
+            <element signature="e#9064#9068#0" expanded="true" />
+            <element signature="e#9103#9107#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

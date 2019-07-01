@@ -8,17 +8,7 @@
  
 ![add new repostiory](images/publish-kotlin-mpp-lib/add-new-repository.png)
 - Under <b> name</b> put in the name of the repository. For example, `myrepository`. Under `Type` put `Maven`, and fill in the rest as you wish.
-
-I will assume you have the 'new look', so press the `Go to New Look` button at the top of the screen if you have it.
-- Add a package:
  
- 
-![add new package](images/publish-kotlin-mpp-lib/add-new-package.png)
-- Under <b>Name </b> put in the name of the library. This should be a lower-case string. In this guide we will publish a library that provides a function that prints "Kotlin is awesome!", so we will call it `kotlin-awesome-printer`. 
-- Put in your desired licenses in <b>Licenses</b>.
-- In <b>Version control</b> put in where your code is stored. In our example, it will be [https://github.com/natanfudge/KotlinAwesomePrinter](https://github.com/natanfudge/KotlinAwesomePrinter).
-
-- Click on <b>Save</b>
 
 That is it for now on the Bintray side. 
 
@@ -56,16 +46,8 @@ def BINTRAY_ORGINIZATION= //  Your public facing Bintray name. You can see your 
 def ISSUE_URL= // A link to an issue tracker for the library, in our example: "https://github.com/natanfudge/KotlinAwesomePrinter/issues"
 def SITE_URL= // A link to the library's site. In our example: "https://github.com/natanfudge/KotlinAwesomePrinter"
 def VCS_URL= // A link to the version control system (where the code is stored). In our example: "https://github.com/natanfudge/KotlinAwesomePrinter.git"
+def LIBRARY_VERSION_NAME=1.0 // The current version of your library. You will need to update this value whenever you upload a new release. For example: 1.0
 
-def POM_LICENSE_NAME= // The name of the license of the library. For example: "The MIT License"
-def POM_LICENSE_URL= // A link to the license, For example: "https://opensource.org/licenses/MIT"
-def POM_LICENSE_DIST="repo" // Leave as is
-def POM_DEVELOPER_ID= // your name, for example "natanfudge"
-def POM_DEVELOPER_NAME=// your name, for example "natanfudge"
-def POM_ORGANIZATION_NAME=// The name of your orginization, for example "fudge"
-def POM_ORGANIZATION_URL= // Your orginization's site, for example "https://github.com/natanfudge"
-def POM_DESCRIPTION= // A description of your library, for example "Prints 'Kotlin Is Awesome!' "
-def LIBRARY_VERSION_NAME= // The current version of your library. You will need to update this value whenever you upload a new release. For example: 1.0
 ```
 
 Add `jcenter` to your repositories if you don't have it yet:
@@ -84,37 +66,10 @@ version LIBRARY_VERSION_NAME
 
 After your `kotlin{}` block, paste this:
 ```
-def pomConfig = {
-    licenses {
-        license {
-            name POM_LICENSE_NAME
-            url POM_LICENSE_URL
-            distribution POM_LICENSE_DIST
-        }
-    }
-    developers {
-        developer {
-            id POM_DEVELOPER_ID
-            name POM_DEVELOPER_NAME
-            organization POM_ORGANIZATION_NAME
-            organizationUrl POM_ORGANIZATION_URL
-        }
-    }
-    scm {
-        url SITE_URL
-    }
-}
+
 
 afterEvaluate {
     project.publishing.publications.all { 
-        pom.withXml {                     
-            def root = asNode()
-            root.appendNode('name', ARTIFACT_ID)
-            root.appendNode('description', POM_DESCRIPTION)
-            root.appendNode('url', SITE_URL)
-            root.children().last() + pomConfig
-        }
-
         // rename artifacts
         groupId = GROUP_ID
         if (it.name.contains('metadata')) { 
