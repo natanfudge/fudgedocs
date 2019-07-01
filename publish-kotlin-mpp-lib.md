@@ -14,7 +14,7 @@ I will assume you have the 'new look', so press the `Go to New Look` button at t
  
  
 ![add new package](images/publish-kotlin-mpp-lib/add-new-package.png)
-- Under <b>Name </b> put in the name of the library. This should be a lower-case string. In this guide we will make publish a library that provides a function that prints "Kotlin is awesome!", so we will call it `kotlin-awesome-printer`. 
+- Under <b>Name </b> put in the name of the library. This should be a lower-case string. In this guide we will publish a library that provides a function that prints "Kotlin is awesome!", so we will call it `kotlin-awesome-printer`. 
 - Put in your desired licenses in <b>Licenses</b>.
 - In <b>Version control</b> put in where your code is stored. In our example, it will be [https://github.com/natanfudge/KotlinAwesomePrinter](https://github.com/natanfudge/KotlinAwesomePrinter).
 
@@ -182,7 +182,7 @@ bintrayUpload.dependsOn publishToMavenLocal
 Finally, you will need to add some secret information to your gradle.properties. For this reason, <b>you MUST remove gradle.properties from source control.</b>
 To do this, create a .gitignore file at the root of your project if you don't have one already, and add `gradle.properties` to it. Then, remove `gradle.properties` from source control by executing `git rm --cached gradle.properties` in the root directory.
 Make sure you see `gradle.properties` is yellow in the IDE before committing your changes to source control (git).
-Now, add these constants to `gradle.properties`.    `bintrayUser` - The username you signed up to bintray with. You can see this in your profile. `bintrayApiKey` - To get this, go to edit profile -> API Key and then copy to API Key.
+Now, add these constants to `gradle.properties`.    `bintrayUser` - The username you signed up to bintray with. You can see this in your profile. `bintrayApiKey` - To get this, go to edit profile -> API Key and then copy the API Key.
 ```
 bintrayUser=
 bintrayApiKey=
@@ -196,21 +196,18 @@ Run `gradle wrapper` if you haven't already, then run `gradlew clean` and then `
 Then go to your package in Bintray and click 'publish all' on the notification you will get.
 
 ### Step 4: Tell your users how to use your library
-Go to your package in Bintray and press `Set me up`:
+Copy the link below `Set me up`:
 
 
 ![set me up](images/publish-kotlin-mpp-lib/set-me-up.png)
 
-Open up `Resolving artifacts using Gradle`. Copy the url that is presented there (in our example it's "https://dl.bintray.com/guide/myrepository")
-
 Showing your users something like this will suffice:
 ```
-Add this to your `repositories` block in build.gradle:
 Add this to your `repositories` block in build.gradle:
 
 repositories {
 	maven {
-		url  //PUT HERE THE URL YOU COPIED FROM "SET ME UP", in our example it would be 'url ""https://dl.bintray.com/guide/myrepository" ""'
+		url  //PUT HERE THE URL YOU COPIED FROM BELOW "SET ME UP", in our example it would be 'url ""https://dl.bintray.com/guide/myrepository" ""'
 	}
 }
 
@@ -237,7 +234,7 @@ For JS: implementation 'com.fudge:KotlinAwesomePrinter-js:1.0'
 For Windows Native: implementation 'com.fudge:KotlinAwesomePrinter-mingw:1.0'
 ```
 
-If you don't know what to append in a certain platform, go to the link from "set me up" ("https://dl.bintray.com/guide/myrepository" in the example) and go through the directories until you see
+If you don't know what to append in a certain platform, go to the link from below "set me up" ("https://dl.bintray.com/guide/myrepository" in the example) and go through the directories until you see
 a couple directories with the name of your project with a different '-' postfixes for each one. Those are the postfixes your users will need to use.
 
 This example is available on [https://github.com/natanfudge/KotlinAwesomePrinter](https://github.com/natanfudge/KotlinAwesomePrinter).

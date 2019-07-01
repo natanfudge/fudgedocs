@@ -6,3 +6,8 @@
 /*body {*/
 /*  padding-top: 56px;*/
 /*}*/
+
+img {
+    max-width: 100%;
+    max-height: 100%;
+}

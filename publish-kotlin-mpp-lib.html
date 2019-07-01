@@ -60,7 +60,7 @@
                 <li>Add a new repository:</li>
             </ul>
 
-            <p><img src="images/publish-kotlin-mpp-lib/add-new-repository.png" class="img-responsive"
+            <p><img src="images/publish-kotlin-mpp-lib/add-new-repository.png"
                     alt="add new repostiory"/></p>
 
             <ul>
@@ -77,12 +77,12 @@
                 <li>Add a package:</li>
             </ul>
 
-            <p><img src="images/publish-kotlin-mpp-lib/add-new-package.png" alt="add new package" class="img-responsive"/>
+            <p><img src="images/publish-kotlin-mpp-lib/add-new-package.png" alt="add new package"/>
             </p>
 
             <ul>
                 <li><p>Under <b>Name </b> put in the name of the library. This should be a
-                    lower-case string. In this guide we will make publish a library that provides a
+                    lower-case string. In this guide we will publish a library that provides a
                     function that prints "Kotlin is awesome!", so we will call it <code>kotlin-awesome-printer</code>.
                 </p></li>
 
@@ -269,10 +269,10 @@ bintrayUpload.dependsOn publishToMavenLocal
                 the root directory.
                 Make sure you see <code>gradle.properties</code> is yellow in the IDE before
                 committing your changes to source control (git).
-                Now, add these constants to <code>gradle.properties</code>.    <code>bintrayUser</code>
+                Now, add these constants to <code>gradle.properties</code>. <code>bintrayUser</code>
                 - The username you signed up to bintray with. You can see this in your profile.
                 <code>bintrayApiKey</code> - To get this, go to edit profile -> API Key and then
-                copy to API Key.</p>
+                copy the API Key.</p>
 
             <pre><code>bintrayUser=
 bintrayApiKey=
@@ -291,12 +291,9 @@ bintrayApiKey=
             <h3 id="step4tellyourusershowtouseyourlibrary">Step 4: Tell your users how to use your
                 library</h3>
 
-            <p>Go to your package in Bintray and press <code>Set me up</code>:</p>
+            <p>Copy the link below <code>Set me up</code>:</p>
 
-            <p><img src="images/publish-kotlin-mpp-lib/set-me-up.png" class="img-responsive" class="img-responsive"  alt="set me up"/></p>
-
-            <p>Open up <code>Resolving artifacts using Gradle</code>. Copy the url that is presented
-                there (in our example it's "https://dl.bintray.com/guide/myrepository")</p>
+            <p><img src="images/publish-kotlin-mpp-lib/set-me-up.png" alt="set me up"/></p>
 
             <p>Showing your users something like this will suffice:</p>
 
@@ -304,7 +301,7 @@ bintrayApiKey=
 
 repositories {
     maven {
-        url  //PUT HERE THE URL YOU COPIED FROM "SET ME UP", in our example it would be 'url ""https://dl.bintray.com/guide/myrepository" ""'
+        url  //PUT HERE THE URL YOU COPIED FROM BELOW "SET ME UP", in our example it would be 'url ""https://dl.bintray.com/guide/myrepository" ""'
     }
 }
 </code></pre>
@@ -334,9 +331,9 @@ For JS: implementation 'com.fudge:KotlinAwesomePrinter-js:1.0'
 For Windows Native: implementation 'com.fudge:KotlinAwesomePrinter-mingw:1.0'
 </code></pre>
 
-            <p>If you don't know what to append in a certain platform, go to the link from "set me
-                up" ("https://dl.bintray.com/guide/myrepository" in the example) and go through the
-                directories until you see
+            <p>If you don't know what to append in a certain platform, go to the link from below
+                "set me up" ("https://dl.bintray.com/guide/myrepository" in the example) and go
+                through the directories until you see
                 a couple directories with the name of your project with a different '-' postfixes
                 for each one. Those are the postfixes your users will need to use.</p>
 
