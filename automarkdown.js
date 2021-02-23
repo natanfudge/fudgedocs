@@ -7,4 +7,4 @@ console.log(fr.result);
    contentDiv.innerHTML = fr.result;
 }
 
-fr.readAsText(new File([""],fileName + ".md"))
+fr.readAsText(new File([""], "binary-search-faulty-mod.md"))
