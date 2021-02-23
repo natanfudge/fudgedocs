@@ -1,4 +1,4 @@
-# How to find out which Minecraft mod (or combination of mods) is causing an issue
+# How to How to find out which Minecraft mod (or combination of mods) is causing an issue
 - The solution that works 100% of the time is to 'Binary Search' which mod causes an issue, as follows:
 1. Disable the first half of mods
 2. - If the issue was fixed, that means that there is only **one faulty mod**, and it is **in the first half**.
